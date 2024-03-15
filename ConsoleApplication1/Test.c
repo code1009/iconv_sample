@@ -142,7 +142,7 @@ relocatable.c
 */
 
 //===========================================================================
-void print_dst_string(const char* dst)
+void print_hex_string(const char* dst)
 {
 	unsigned int i;
 	unsigned int count;
@@ -172,25 +172,32 @@ int main()
 
 
 	//---------------------------------------------------------
-	unsigned char buffer[8];
+	unsigned char ibuffer[8] = { 0xb0, 0xa1 };
+	unsigned char obuffer[8];
 	bool result;
+
 
 
 	//---------------------------------------------------------
 	const char* icharset = "EUC-KR";
 	const char* ocharset = "UTF-8";
 
-	unsigned char* istring = "가";
-	unsigned int  isize = strlen(istring) + 1U;
+	unsigned char* istring = ibuffer;
+	unsigned int  isize = strlen(ibuffer) + 1U;
 	unsigned int  irsize = 0;
-	unsigned char* ostring = buffer;
-	unsigned int  osize = sizeof(buffer);
+	unsigned char* ostring = obuffer;
+	unsigned int  osize = sizeof(obuffer);
 	unsigned int  owsize = 0;
 
 
 	result = convert_charset(icharset, istring, isize, &irsize, ocharset, ostring, osize, &owsize);
-	print_dst_string(ostring);
+	print_hex_string(istring);
+	print_hex_string(ostring);
 
+	/*
+	b0 a1
+	ea b0 80
+	*/
 
 	return 0;
 }

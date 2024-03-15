@@ -219,7 +219,7 @@ relocatable.c
 */
 
 //===========================================================================
-void print_dst_string(const std::string& dst)
+void print_hex_string(const std::string& dst)
 {
 	std::size_t i;
 	std::size_t count;
@@ -256,7 +256,7 @@ int main()
 	//완성형(euc-kr) -> utf8
 	src = "가";
 	dst = string_to_utf8_string(src, "EUC-KR");
-	print_dst_string(dst);
+	print_hex_string(dst);
 
 
 	//---------------------------------------------------------
@@ -266,13 +266,13 @@ int main()
 	src.push_back(static_cast<char>(0xB0));
 	src.push_back(static_cast<char>(0x80));
 	dst = utf8_string_to_string(src, "EUC-KR");
-	print_dst_string(dst);
+	print_hex_string(dst);
 
 
 	//---------------------------------------------------------
 	//utf8 - > 조합형
 	dst = utf8_string_to_string(src, "JOHAB");
-	print_dst_string(dst);
+	print_hex_string(dst);
 
 
 	//---------------------------------------------------------
@@ -281,7 +281,7 @@ int main()
 	src.push_back(static_cast<char>(0x88));
 	src.push_back(static_cast<char>(0x61));
 	dst = string_to_utf8_string(src, "JOHAB");
-	print_dst_string(dst);
+	print_hex_string(dst);
 
 
 	return 0;
