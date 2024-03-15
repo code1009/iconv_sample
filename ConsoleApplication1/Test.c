@@ -172,7 +172,7 @@ int main()
 
 
 	//---------------------------------------------------------
-	unsigned char ibuffer[8] = { 0xb0, 0xa1 };
+	unsigned char ibuffer[8] = { 0xb0, 0xa1, 0x00 };
 	unsigned char obuffer[8];
 	bool result;
 
