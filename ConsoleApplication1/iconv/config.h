@@ -16,6 +16,9 @@
    License along with the GNU LIBICONV Library; see the file COPYING.LIB.
    If not, see <https://www.gnu.org/licenses/>.  */
 
+#ifndef E2BIG
+#define E2BIG 7
+#endif
 
 /* Define to 1 to enable a few rarely used encodings. */
 #define ENABLE_EXTRA 1

@@ -6,7 +6,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="iconv\iconv.c">
       <Filter>iconv</Filter>
     </ClCompile>
@@ -16,6 +15,8 @@
     <ClCompile Include="iconv\relocatable.c">
       <Filter>iconv</Filter>
     </ClCompile>
+    <ClCompile Include="Test.c" />
+    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iconv\iconv.h">
