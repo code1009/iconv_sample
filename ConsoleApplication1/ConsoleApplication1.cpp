@@ -1,11 +1,19 @@
-﻿// ConsoleApplication1.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
-
+﻿/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
 #include <iostream>
 #include <vector>
 #include <string>
 
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
 #include "iconv/iconv.h"
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -27,7 +35,7 @@ bool convert_charset
 	iconv_t descriptor;
 
 
-		char* ipointer;
+	char* ipointer;
 	::size_t ileft;
 
 	char* opointer;
@@ -107,6 +115,12 @@ bool convert_charset
 	return result;
 }
 
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
 std::string utf8_string_to_string(std::string input, const char* cs)
 {
 	std::string s;
@@ -188,6 +202,23 @@ std::string string_to_utf8_string(std::string input, const char* cs)
 }
 
 
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//===========================================================================
+/*
+# iconv 1.17 소스 포팅
+config.h
+iconv.c
+iconv.h
+libcharset.h
+localcharset.c
+localcharset.h
+relocatable.c
+*/
+
+//===========================================================================
 void print_dst_string(const std::string& dst)
 {
 	std::size_t i;
@@ -203,17 +234,7 @@ void print_dst_string(const std::string& dst)
 	printf("\r\n");
 }
 
-/*
-# iconv 1.17 소스 포팅
-config.h
-iconv.c
-iconv.h
-libcharset.h
-localcharset.c
-localcharset.h
-relocatable.c
-*/
-
+//===========================================================================
 int main()
 {
 	//---------------------------------------------------------
@@ -224,6 +245,7 @@ int main()
 	utf16  : 0xac00
 	utf8   : 234(0xEA), 176(0xB0), 128(0x80)
 	*/
+
 
 	//---------------------------------------------------------
 	std::string src;
