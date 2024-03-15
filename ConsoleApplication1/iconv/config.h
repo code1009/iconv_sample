@@ -23,7 +23,6 @@
 #endif
 
 #define USE_DOS
-//#define ENABLE_EXTRA 0
 
 /** ********************************************************************* **/
 
@@ -52,7 +51,7 @@
 /* #define HAVE_MBRTOWC 1 */
 
 /* Define to 1 if you have the setlocale() function. */
-#define HAVE_SETLOCALE 1
+/*#define HAVE_SETLOCALE 1*/
 
 /* Define to 1 if you have the <stddef.h> header file. */
 /* #undef HAVE_STDDEF_H */
@@ -68,7 +67,7 @@
 #define HAVE_VISIBILITY 0
 
 /* Define if you have the wcrtomb() function. */
-#define HAVE_WCRTOMB 1
+/*#define HAVE_WCRTOMB 1*/
 
 /* Define to 1 if O_NOFOLLOW works. */
 #define HAVE_WORKING_O_NOFOLLOW 0
