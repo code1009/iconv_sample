@@ -2,8 +2,8 @@
 //
 
 #include <iostream>
-#include<vector>
-#include<string>
+#include <vector>
+#include <string>
 
 #include "iconv/iconv.h"
 
@@ -204,6 +204,7 @@ void print_dst_string(const std::string& dst)
 }
 
 /*
+# iconv 1.17 소스 포팅
 config.h
 iconv.c
 iconv.h
@@ -215,14 +216,16 @@ relocatable.c
 
 int main()
 {
-/*
-가
-완성형 : 0xb0a1
-조합형 : 0x8861
-utf16 : 0xac00
-utf8 : 234(0xEA), 176(0xB0), 128(0x80)
-*/
+	//---------------------------------------------------------
+	/*
+	가
+	완성형 : 0xb0a1
+	조합형 : 0x8861
+	utf16  : 0xac00
+	utf8   : 234(0xEA), 176(0xB0), 128(0x80)
+	*/
 
+	//---------------------------------------------------------
 	std::string src;
 	std::string dst;
 
@@ -237,9 +240,9 @@ utf8 : 234(0xEA), 176(0xB0), 128(0x80)
 	//---------------------------------------------------------
 	//utf8 -> 완성형(euc-kr)
 	src.clear();
-	src.push_back(0xEA);
-	src.push_back(0xB0);
-	src.push_back(0x80);
+	src.push_back(static_cast<char>(0xEA));
+	src.push_back(static_cast<char>(0xB0));
+	src.push_back(static_cast<char>(0x80));
 	dst = utf8_string_to_string(src, "EUC-KR");
 	print_dst_string(dst);
 
@@ -253,10 +256,11 @@ utf8 : 234(0xEA), 176(0xB0), 128(0x80)
 	//---------------------------------------------------------
 	//조합형 -> utf8
 	src.clear();
-	src.push_back(0x88);
-	src.push_back(0x61);
+	src.push_back(static_cast<char>(0x88));
+	src.push_back(static_cast<char>(0x61));
 	dst = string_to_utf8_string(src, "JOHAB");
 	print_dst_string(dst);
+
 
 	return 0;
 }
